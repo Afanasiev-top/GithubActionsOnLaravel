@@ -3,7 +3,11 @@ name: Laravel custom
 
 
 
-#event
+#event: push, commit, issue, pull_request, issue_comment, label, gollum(поправил вики), member(новый человек в репозитории)
+  # webhook, schedule
+# у каждого ивента есть типы
+# pull_request:
+#    types: [opened, ready_for_review]
 on:
   push:
     branches: [ master ]
