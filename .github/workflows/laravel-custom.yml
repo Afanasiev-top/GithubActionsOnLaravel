@@ -1,22 +1,32 @@
 # имя нашего Action
 name: Laravel custom
 
+
+
+#event
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
+# наши джобы
 jobs:
   laravel-tests:
-
     runs-on: ubuntu-latest
 
+    # стратегия
+    strategy:
+      max-parallel: 4
+      matrix:
+        php-version: [ '8.0','8.1']
+
+    # шаги
     steps:
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.0'
-        extensions: imagick
+#    - uses: shivammathur/setup-php@v2
+#      with:
+#        php-version: '8.0'
+#        extensions: imagick
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
