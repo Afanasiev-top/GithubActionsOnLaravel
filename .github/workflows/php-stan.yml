@@ -17,5 +17,5 @@ jobs:
         uses: actions-x/phpstan@v1
         with:
           directories: src tests
-          level: 3
+          level: 7
           phpstanVersion: ^0.12
